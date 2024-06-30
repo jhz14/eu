@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opinião sobre o José</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #9c27b0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+      color: #673ab7;
+    }
+    .frase {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #673ab7;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #512da8;
+    }
+    .button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="frase">O José é o cara mais legal que você conhece?</p>
+
+    <div class="button-container">
+      <button id="sim" class="button" onclick="mostrarMensagem()">Sim</button>
+      <button id="nao" class="button" onmouseover="trocarLugar()" onclick="desabilitarBotao()">Não</button>
+    </div>
+
+    <div id="mensagem-container" style="display: none; margin-top: 20px;">
+      <p id="mensagem" style="font-size: 16px;"></p>
+    </div>
+  </div>
+
+  <script>
+    function mostrarMensagem() {
+      var mensagemContainer = document.getElementById('mensagem-container');
+      var mensagemElement = document.getElementById('mensagem');
+      mensagemElement.textContent = "Certíssima gatinha";
+      mensagemContainer.style.display = 'block';
+    }
+
+    function trocarLugar() {
+      var buttonNao = document.getElementById('nao');
+      var buttonSim = document.getElementById('sim');
+      var buttonContainer = document.querySelector('.button-container');
+
+      // Troca a ordem dos botões
+      buttonContainer.insertBefore(buttonNao, buttonSim);
+    }
+
+    function desabilitarBotao() {
+      var buttonNao = document.getElementById('nao');
+      buttonNao.disabled = true;
+      buttonNao.textContent = "Botão desativado";
+    }
+  </script>
+</body>
+</html>
